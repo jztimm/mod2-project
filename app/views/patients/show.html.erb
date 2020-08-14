@@ -1,0 +1,9 @@
+<h3><%= @patient.name %></h3>
+
+<% if @patient.doctor %>
+  <p> The doctor: <%= link_to @patient.doctor.name, doctor_path(@patient.doctor) %>!</p>
+<%end%>
+<p> My condition is: <%= @patient.condition %>!</p>
+
+
+<p>Wrong information? Edit your information<%= link_to "here", edit_patient_path(@patient) %>.</p>

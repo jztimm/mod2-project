@@ -1,0 +1,9 @@
+<h1> All the Doctors </h1>
+
+<%= button_to "Become a new Doctor", new_doctor_path, method: :get %>
+<br>
+
+<% @doctors.each do |d| %>
+  <p><%= link_to d.name, doctor_path(d) %></p>
+<%end%>
+

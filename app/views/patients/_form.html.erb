@@ -1,0 +1,12 @@
+<%= form_for @patient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :condition %>
+  <%= f.text_field :condition %>
+  
+  <%= f.label "Choose your doctor..."%>
+  <%= collection_select(:patient, :doctor_id, Doctor.all, :id, :name) %>
+
+  <%= f.submit %>
+<% end %>

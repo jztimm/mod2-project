@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   
   root 'doctors#index'
 
+  get '/patients/new_login', to: 'users#new_login', as: 'new_login'
+
 end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :patients
-  post 'patients/delete', to: 'patients#destroy', as: 'destroy_patient'
+  # post 'patients/delete', to: 'patients#destroy', as: 'destroy_patient'
 
 
   resources :doctors

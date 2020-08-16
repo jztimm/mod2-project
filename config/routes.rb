@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   resources :patients
+  post 'patients/delete', to: 'patients#destroy', as: 'destroy_patient'
+
+
   resources :doctors
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   

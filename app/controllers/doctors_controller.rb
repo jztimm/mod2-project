@@ -3,7 +3,6 @@ class DoctorsController < ApplicationController
     before_action :find_doctor, only: [:show, :edit, :update, :destroy]
 
   def index
-    cookies[:user_cookies] = 'Tic-tok'
     @doctors = Doctor.all
   end
 

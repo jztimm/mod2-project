@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :appointments, only: [:new, :edit, :update, :destroy]
   resources :patients
   # post 'patients/delete', to: 'patients#destroy', as: 'destroy_patient'
 

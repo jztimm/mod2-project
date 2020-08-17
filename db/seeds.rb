@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# 15.times do
-#   Doctor.create(name: Faker::Name.unique.name, specialty: )
-# end
+15.times do
+   Doctor.create(name: Faker::Name.unique.name, specialty: Faker::Company.profession )
+end
 
-# 25.times do
-#   Patient.create(name: Faker::Name.unique.name, condition: )
-# end
+25.times do
+   Patient.create(name: Faker::Name.unique.name, condition: Faker::App.unique.name )
+end
 
 
 

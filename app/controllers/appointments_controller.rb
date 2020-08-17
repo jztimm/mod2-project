@@ -1,8 +1,15 @@
 class AppointmentsController < ApplicationController
    before_action :find_appointment, only: [:show, :edit, :update, :destroy]
 
+   def index
+      @appointments = Appointment.all
+   end
+
    def new
       @appointment = Appointment.new
+   end
+
+   def show
    end
 
    def create

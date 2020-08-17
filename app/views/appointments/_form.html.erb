@@ -9,10 +9,10 @@
    <%= f.collection_select(:doctor_id, Doctor.all, :id, :name) %>
    <br>
    <%= f.label :date %>
-   <%= select_date Date.today, :prefix => :date %>
+   <%= f.date_field(:date, order: [:month, :day, :year])%>
    <br>
    <%= f.label :time %>
-   <%= select_time Time.now, :prefix => :time %>
+   <%= time_field(:time, order: [:hour, :minute]) %>
    <br>
    <%= f.submit %>
 <% end %>

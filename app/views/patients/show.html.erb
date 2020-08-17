@@ -1,15 +1,18 @@
 <h3><%= @patient.name %></h3>
 
 <% if @patient.doctors %>
-  <p> The doctor: <%  @patient.doctors %>!</p>
+  <p> The doctor: <% @patient.doctors.uniq.each do |doc| %>
+    <%= link_to doc.name, doctor_path(doc) %>
+  <%end %>
+</p>
 <% else %>
   <p>I have no doctor!</p>
 <%end%>
-
+<br>
   <h5> My upcoming Appointments: </h5>
 
 <% @patient.appointments.each do |appointment| %>
-  <p><%= appointment.condition %>- time: <%= appointment.time %></p>
+  <p><h6>Reasoning: "<%= link_to appointment.condition, appointment_path(appointment) %>"</h6>date: <%= appointment.date %><br> Time: <%= appointment.time %></p>
 <%end%>
 
 

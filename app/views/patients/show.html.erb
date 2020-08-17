@@ -1,20 +1,16 @@
 <h3><%= @patient.name %></h3>
-
-<% if @patient.doctors %>
-  <p> The doctor: <%  @patient.doctors %>!</p>
-<% else %>
-  <p>I have no doctor!</p>
-<%end%>
-
+<br>
   <h5> My upcoming Appointments: </h5>
 
-<% @patient.appointments.each do |appointment| %>
-  <p><%= appointment.condition %>- time: <%= appointment.time.strftime("%H:%M") %></p>
-<%end%>
 
 <% @patient.appointments.each do |appointment| %>
-  <p><%= appointment.condition %>- date: <%= appointment.date %></p>
+  <p><h6>Reasoning: "<%= link_to appointment.condition, appointment_path(appointment) %>"</h6>Doctor: <%= appointment.doctor.name %><br></p>
+  <p><%= appointment.condition %>- time: <%= appointment.time.strftime("%H:%M") %></p> 
 <%end%>
-
-
+<br>
+ 
+<br>
 <p>Wrong information? Edit your information<%= link_to "here", edit_patient_path(@patient) %>.</p>
+
+
+

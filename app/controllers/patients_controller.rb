@@ -45,7 +45,9 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :age, :city, :zipcode, :password)
+    params.require(:patient).permit(:name, :age, :city, :zipcode)
+    # , :password
+    # rails d migration add_password_digest_to_patients password_digest:string
   end
 
   def find_patient

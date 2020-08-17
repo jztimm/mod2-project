@@ -6,6 +6,11 @@ class PatientsController < ApplicationController
   end
 
   def show
+
+    # if session[:user_id]
+    #   redirect_to patient_path(session[:user_id])
+    # end
+
   end
 
   def new
@@ -14,7 +19,14 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.create(patient_params)
-    redirect_to patient_path(@patient)
+    
+    if @patient.valid?
+    #   session[:user_id] = @patient.id
+      redirect_to patient_path(@patient)
+    else
+      flash[:my_error] = @patient.errors.full_messages
+      redirect_to new_patient_path
+    end
   end
 
   def edit
@@ -33,7 +45,7 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :condition, :doctor_id)
+    params.require(:patient).permit(:name, :age, :city, :zipcode, :password)
   end
 
   def find_patient

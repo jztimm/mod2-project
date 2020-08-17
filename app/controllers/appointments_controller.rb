@@ -14,7 +14,7 @@ class AppointmentsController < ApplicationController
    end
 
    def update
-      @appointment.update(appointment_params)
+      @appointment.update(appointments_params)
       redirect_to appointment_path(@appointment)
    end
 

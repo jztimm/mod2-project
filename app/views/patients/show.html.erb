@@ -1,7 +1,7 @@
 <h3><%= @patient.name %></h3>
 
 <% if @patient.doctors %>
-  <p> The doctor: <%= link_to @patient.doctors.name, doctor_path(@patient.doctors) %>!</p>
+  <p> The doctor: <%  @patient.doctors %>!</p>
 <% else %>
   <p>I have no doctor!</p>
 <%end%>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :appointments, only: [:new, :edit, :update, :destroy]
-  resources :patients
+  resources :appointments, only: [:new, :create, :edit, :update, :destroy]
+  resources :patients, except: [:index]
   # post 'patients/delete', to: 'patients#destroy', as: 'destroy_patient'
 
 

@@ -1,7 +1,0 @@
-<h1> All the Patients </h1>
-<%= button_to "New Patient", new_patient_path, method: :get %>
-<br>
-
-<% @patients.each do |p| %>
-  <p><%= link_to p.name, patient_path(p) %></p>
-<%end%>

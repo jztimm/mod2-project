@@ -9,7 +9,7 @@
   <h5> My upcoming Appointments: </h5>
 
 <% @patient.appointments.each do |appointment| %>
-  <p><%= appointment.condition %>- time: <%= appointment.time %></p>
+  <p><%= appointment.condition %>- time: <%= appointment.time.strftime("%H:%M") %></p>
 <%end%>
 
 <% @patient.appointments.each do |appointment| %>

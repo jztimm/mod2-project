@@ -12,7 +12,7 @@
 end
 
 25.times do
-   Patient.create(name: Faker::Name.unique.name, condition: Faker::App.unique.name )
+   Patient.create(name: Faker::Name.unique.name)
 end
 
 

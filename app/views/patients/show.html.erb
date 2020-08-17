@@ -12,6 +12,9 @@
   <p><%= appointment.condition %>- time: <%= appointment.time %></p>
 <%end%>
 
+<% @patient.appointments.each do |appointment| %>
+  <p><%= appointment.condition %>- date: <%= appointment.date %></p>
+<%end%>
 
 
 <p>Wrong information? Edit your information<%= link_to "here", edit_patient_path(@patient) %>.</p>

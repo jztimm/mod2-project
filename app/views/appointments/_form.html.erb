@@ -9,10 +9,10 @@
    <%= f.collection_select(:doctor_id, Doctor.all, :id, :name) %>
    <br>
    <%= f.label :date %>
-   <%= select_date Date.today, :prefix => :date %>
+   <%= f.date_select(:date, order: [:month, :day, :year])%>
    <br>
    <%= f.label :time %>
-   <%= select_time Time.now, :prefix => :time %>
+   <%= f.time_select :time, {minute_step: 15}%>
    <br>
    <%= f.submit %>
 <% end %>

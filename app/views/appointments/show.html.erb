@@ -1,9 +1,12 @@
-<h2>This appointment is with the doctor: <p><%= @appointment.doctor.name %></h2></p><br>
-<h2>This is your appointment for: <p><%= @appointment.condition %></h2></p><br>
+<h4>This appointment is with the doctor: <p><%= @appointment.doctor.name %></h4></p><br>
+<h4>This is your appointment for: <p><%= @appointment.condition %></h4></p><br>
 
-<h3>The date and time for the appointment is set to: <br><%= @appointment.date %> - <%= @appointment.time %></h3>
+<p>Additional information:</p>
+<%#<p><%= @appointment.additional_info %>
 
+<h4>The date and time for the appointment is set to: <br><%= @appointment.date %> - <%= @appointment.time.strftime("%H:%M") %></h4>
 
-
+<br>
+<p>Want to make changes to this appointment? Click <%= link_to 'here', edit_appointment_path(@appointment) %></p>
 
 

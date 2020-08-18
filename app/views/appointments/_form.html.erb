@@ -6,7 +6,7 @@
    <%= f.text_field :condition %>
    <br>
    <%= f.label :doctor_id %>
-   <%= f.collection_select(:doctor_id, Doctor.all, :id, :name) %>
+   <%= f.select :doctor_id, options_from_collection_for_select(Doctor.order(:name).all, "id", "name", params[:doctor_id]) %>
    <br>
    <%= f.label :date %>
    <%= f.date_field(:date, order: [:month, :day, :year])%>

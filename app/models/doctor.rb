@@ -8,4 +8,5 @@ class Doctor < ApplicationRecord
   #   <%= form.submit "Search" %>
   # <% end %>
 
+
 end

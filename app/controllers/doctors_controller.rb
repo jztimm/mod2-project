@@ -4,7 +4,11 @@ class DoctorsController < ApplicationController
 
   def index
     @doctors = Doctor.all
+    if params[:zipcode]
+      @doctors = @doctors.where(zipcode: params[:zipcode])
+    end
   end
+  
 
   def show
   end
@@ -31,6 +35,7 @@ class DoctorsController < ApplicationController
     redirect_to doctors_path
   end
 
+ 
   private
 
   def doctor_params

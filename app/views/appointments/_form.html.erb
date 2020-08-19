@@ -12,12 +12,12 @@
    <%= f.select :doctor_id, options_from_collection_for_select(Doctor.order(:name).all, "id", "name", params[:doctor_id]) %>
    <br>
    <%= f.label :date %>
-   <%= f.date_field(:date, order: [:month, :day, :year])%>
+   <%= f.date_field(:date, min: Date.today, order: [:month, :day, :year])%>
    <br>
    <%= f.label :time %>
-   <%= f.time_field(:time, :min=>"9:00",
-                           :max=>"20:00",
-                           :step=>'1800') %>
+   <%= f.time_field(:time, min:"9:00",
+                           max:"20:00",
+                           minute_step: 15) %>
    <br>
    <%= f.submit %>
 <% end %>

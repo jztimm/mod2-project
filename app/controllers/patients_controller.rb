@@ -6,11 +6,9 @@ class PatientsController < ApplicationController
   end
 
   def show
-
     # if session[:user_id]
     #   redirect_to patient_path(session[:user_id])
     # end
-
   end
 
   def new
@@ -18,13 +16,13 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.create(patient_params)
+    patient = Patient.create(patient_params)
     
-    if @patient.valid?
-    #   session[:user_id] = @patient.id
-      redirect_to patient_path(@patient)
+    if patient.valid?
+      session[:user_id] = patient.id
+      redirect_to patient
     else
-      flash[:my_error] = @patient.errors.full_messages
+      flash[:my_error] = patient.errors.full_messages
       redirect_to new_patient_path
     end
   end
@@ -39,15 +37,13 @@ class PatientsController < ApplicationController
 
   def destroy
     @patient.destroy
-    redirect_to patients_path
+    redirect_to '/'
   end
 
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :age, :city, :zipcode)
-    # , :password
-    # rails d migration add_password_digest_to_patients password_digest:string
+    params.require(:patient).permit(:name, :password, :age, :city, :zipcode)
   end
 
   def find_patient

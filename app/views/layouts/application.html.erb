@@ -30,27 +30,27 @@
         </ul>  
         </div>
       </div>
-      <form class="form-inline my-2 my-lg-0" action="/">
-        <input class="form-control mr-sm-2" type="search" placeholder="Zip-Code" aria-label="Search">
-        <button class="btn btn-light bg-primary my-2 my-sm-0" type="submit" onclick="">Search by Zip</button>
-      </form>
-      
       <%= form_with(path: doctors_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
         <div class: "form-control mr-sm-2">
-          <%= label_tag(:q, "Find a Doctor By Zipcode") %>
-          <%= text_field_tag(:zipcode) %>
+          <%= label_tag(:q, "") %>
+          <%= text_field_tag(:zipcode, "", class: "form-inline my-2 my-lg-0") %>
         </div>
-        <%= submit_tag("Search", class: "btn btn-light bg-primary my-2 my-sm-0") %>
+        <%= submit_tag("Search By Zip", class: "btn btn-light bg-primary my-2 my-sm-0") %>
       <% end %>
 
       <div class="navbar-nav">
         <div class="nav-item">
-          <a class="nav-link" href="/patients/login">Login</a>
-        </div>
-      </div>
-      <div class="navbar-nav">
-        <div class="nav-item">
-          <a class="nav-link" href="/patients/new">Sign up</a>
+        <% if @current_user %>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-link">Welcome <%= @current_user.name %></li>
+          <li class="nav-link"> <%= button_to 'Logout', logout_path, method: :delete%></li>
+        </ul>
+        <%else%>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-link"> <%= button_to 'Login', new_login_path, method: :get %></li>
+          <li class="nav-link"> <%= button_to 'Sign up', new_patient_path, method: :get %></li>
+        </ul>
+        <%end%>
         </div>
       </div>
     </nav>

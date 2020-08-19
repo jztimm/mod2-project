@@ -8,11 +8,12 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import "boostrap"
+import "bootstrap"
+// import "../stylesheets/application"
 
 document.addEventListener("turbolinks:load", () => {
-   $('[daya-toggle="tooltip"]').tooltip()
-   $('[daya-toggle="tooltip"]').popover()
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').popover()
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference

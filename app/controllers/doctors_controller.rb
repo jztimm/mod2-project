@@ -6,6 +6,7 @@ class DoctorsController < ApplicationController
     @doctors = Doctor.all
     unless params[:zipcode].nil? || params[:zipcode].empty?
       @doctors = @doctors.where(zipcode: params[:zipcode])
+      byebug
     end
   end
   
@@ -42,7 +43,7 @@ class DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :specialty)
+    params.require(:doctor).permit(:name, :specialty, :age, :city, :zipcode)
   end
 
   def find_doctor

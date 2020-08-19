@@ -6,7 +6,6 @@ class DoctorsController < ApplicationController
     @doctors = Doctor.all
     unless params[:zipcode].nil? || params[:zipcode].empty?
       @doctors = @doctors.where(zipcode: params[:zipcode])
-      byebug
     end
   end
   

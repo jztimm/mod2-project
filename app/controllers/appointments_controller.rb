@@ -7,6 +7,9 @@ class AppointmentsController < ApplicationController
 
    def new
       @appointment = Appointment.new
+      unless params[:zipcode].nil? || params[:zipcode].empty?
+         redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
+       end
    end
 
    def show

@@ -30,15 +30,11 @@
         </ul>  
         </div>
       </div>
-      <form class="form-inline my-2 my-lg-0" action="/">
-        <input class="form-control mr-sm-2" type="search" placeholder="Zip-Code" aria-label="Search">
-        <button class="btn btn-light bg-primary my-2 my-sm-0" type="submit" onclick="">Search by Zip</button>
-      </form>
       
-      <%= form_with(path: doctors_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
+      <%= form_with(path: root_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
         <div class: "form-control mr-sm-2">
-          <%= label_tag(:q, "Find a Doctor By Zipcode") %>
-          <%= text_field_tag(:zipcode) %>
+          <%= label_tag(:q, "") %>
+          <%= text_field_tag(:zipcode, "", class: 'form-control mr-sm-2') %>
         </div>
         <%= submit_tag("Search", class: "btn btn-light bg-primary my-2 my-sm-0") %>
       <% end %>

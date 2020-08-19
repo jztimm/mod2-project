@@ -43,12 +43,12 @@
         <% if @current_user %>
         <ul class="navbar-nav mx-auto">
           <li class="nav-link">Welcome <%= @current_user.name %></li>
-          <li class="nav-link"> <%= button_to 'Logout', logout_path, method: :delete%></li>
+          <li class="nav-link" href="sessions/logout">Logout</li>
         </ul>
         <%else%>
         <ul class="navbar-nav mx-auto">
           <li class="nav-link"> <%= button_to 'Login', new_login_path, method: :get %></li>
-          <li class="nav-link"> <%= button_to 'Sign up', new_patient_path, method: :get %></li>
+          <li class="nav-link" href="patients/new">Sign up</li>
         </ul>
         <%end%>
         </div>

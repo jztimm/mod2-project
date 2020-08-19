@@ -3,7 +3,7 @@ class DoctorsController < ApplicationController
 
   def index
     @doctors = Doctor.all
-    if params[:zipcode]
+    unless params[:zipcode].nil? || params[:zipcode].empty?
       @doctors = @doctors.where(zipcode: params[:zipcode])
     end
   end
@@ -13,6 +13,9 @@ class DoctorsController < ApplicationController
     # if session[:user_id]
     #   redirect_to patient_path(session[:user_id])
     # end
+    unless params[:zipcode].nil? || params[:zipcode].empty?
+      redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
+    end
   end
 
   def new

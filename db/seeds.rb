@@ -8,15 +8,15 @@
 
 puts "Creating Seeds..."
 
-15.times do
-   Doctor.create(name: Faker::Name.unique.name,age: rand(25..150), specialty: Faker::Company.profession, city: Faker::Address.city, zipcode: Faker::Address.zip_code )
+50.times do
+   Doctor.create(name: Faker::Name.unique.name,age: rand(25..150), specialty: Faker::Company.profession, city: Faker::Address.city, zipcode: 10000 + rand(20..24) )
 end
 
 50.times do
    Patient.create(name: Faker::Name.unique.name, age: rand(1..150), city: Faker::Address.city, zipcode: Faker::Address.zip_code)
 end
 
-50.times do
+15.times do
    Appointment.create(patient_id: Patient.all.sample.id, doctor_id: Doctor.all.sample.id, condition: Faker::Movies::StarWars.specie , date: Faker::Date.between(from: '2020-09-23', to: '2024-09-25'), time: nil )
 end
 

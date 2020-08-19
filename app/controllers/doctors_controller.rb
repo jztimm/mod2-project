@@ -1,5 +1,4 @@
 class DoctorsController < ApplicationController
-  skip_before_action :verify_authenticity_token
   before_action :find_doctor, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,6 +10,9 @@ class DoctorsController < ApplicationController
   
 
   def show
+    # if session[:user_id]
+    #   redirect_to patient_path(session[:user_id])
+    # end
     unless params[:zipcode].nil? || params[:zipcode].empty?
       redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
     end
@@ -21,8 +23,14 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    @doctor = Doctor.create(doctor_params)
-    redirect_to doctor_path(@doctor)
+    doctor = Doctor.create(doctor_params)
+    if doctor.valid?
+      session[:user_id] = doctor.id
+      redirect_to doctor
+    else
+      flash[:my_error] = doctor.errors.full_messages
+      redirect_to new_doctor_path
+    end
   end
 
   def edit
@@ -42,7 +50,7 @@ class DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :specialty, :age, :city, :zipcode)
+    params.require(:doctor).permit(:name, :age, :specialty, :city, :zipcode)
   end
 
   def find_doctor

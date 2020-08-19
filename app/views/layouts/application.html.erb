@@ -48,8 +48,8 @@
         </ul>
         <%else%>
         <ul class="navbar-nav mx-auto">
-          <li class="nav-link"> <%= button_to 'Login', new_login_path, method: :get %></li>
-          <li class="nav-link" href="patients/new">Sign up</li>
+          <li> <%= link_to 'Login', new_login_path, method: :get, class: "nav-link" %></li>
+          <li> <%= link_to 'Sign Up', new_patient_path, method: :get, class: "nav-link" %></li>
         </ul>
         <%end%>
         </div>

@@ -1,5 +1,9 @@
 <%= simple_form_for @doctor do |f| %>
   <%= f.input :name %>
+  <%= f.input :age, as: :integer, min: 0, max: 150 %>
   <%= f.input :specialty %>
+  <%= f.input :city %>
+  <%= f.input :zipcode %>
+
   <%= f.submit %>
 <% end %>

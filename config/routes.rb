@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   root 'doctors#index'
 
+  # get '/doctors/search', to: 'doctors#search', as: 'search_doctors'
   get '/sessions/new_login', to: 'users#new_login', as: 'new_login'
   get '/patients/new', to: 'patients#new', as: 'signup'
-
 end

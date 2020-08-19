@@ -7,6 +7,9 @@ class AppointmentsController < ApplicationController
 
    def new
       @appointment = Appointment.new
+      unless params[:zipcode].nil? || params[:zipcode].empty?
+         redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
+       end
    end
 
    def show
@@ -34,7 +37,7 @@ class AppointmentsController < ApplicationController
    private
 
    def appointments_params
-      params.require(:appointment).permit(:patient_id, :doctor_id, :condition, :date, :time)
+      params.require(:appointment).permit(:patient_id, :doctor_id, :condition, :date, :time, :additional_info)
    end
 
    def find_appointment

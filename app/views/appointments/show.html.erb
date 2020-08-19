@@ -4,6 +4,12 @@
 <h3>The date and time for the appointment is set to: <br><%= @appointment.date %> - <%= @appointment.time.strftime("%H:%M") %></h3>
 
 
+<h4>Additional information:</h4><br>
+<h5>"<%= @appointment.additional_info %>"</h5><br>
 
+<h4>The date and time for the appointment is set to:</h4> <br><h5><%= @appointment.date %> - <%= @appointment.time.strftime("%H:%M") %></h5>
+
+<br>
+<p>Want to make changes to this appointment? Click <%= link_to 'here', edit_appointment_path(@appointment) %></p>
 
 

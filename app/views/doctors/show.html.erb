@@ -8,6 +8,7 @@
 <p><%= link_to p.name, patient_path(p)%></p>
 <%end%>
 <br>
+<p>Want to create an appointment with me? Click <%= link_to 'here', new_appointment_path(:doctor_id => @doctor.id) %> to get started!</p>
 <br>
 <h6>Edit your doctor's profile<%= link_to "here", edit_doctor_path(@doctor) %>.</h6>
 

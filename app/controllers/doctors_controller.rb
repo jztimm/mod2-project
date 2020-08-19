@@ -1,12 +1,19 @@
 class DoctorsController < ApplicationController
-
-    before_action :find_doctor, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  before_action :find_doctor, only: [:show, :edit, :update, :destroy]
 
   def index
     @doctors = Doctor.all
+    unless params[:zipcode].nil? || params[:zipcode].empty?
+      @doctors = @doctors.where(zipcode: params[:zipcode])
+    end
   end
+  
 
   def show
+    unless params[:zipcode].nil? || params[:zipcode].empty?
+      redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
+    end
   end
 
   def new
@@ -31,6 +38,7 @@ class DoctorsController < ApplicationController
     redirect_to doctors_path
   end
 
+ 
   private
 
   def doctor_params

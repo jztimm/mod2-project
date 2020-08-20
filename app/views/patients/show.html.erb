@@ -4,9 +4,8 @@
 
 
 <% @patient.appointments.each do |appointment| %>
-  <p><h6>Reasoning: "<%= link_to appointment.condition, appointment_path(appointment) %>"</h6>Doctor: <%= appointment.doctor.name %><br></p>
-  <p>time: <%= appointment.time.strftime("%H:%M") %> </p>
-  <p>date: <%= appointment.date %></p> 
+  <p>Doctor: <%= link_to appointment.doctor.name, doctor_path(appointment.doctor) %></p><p>Reason: "<%= link_to appointment.condition, appointment_path(appointment) %>"</p>
+  <p>date: <%= appointment.date %> at: <%= appointment.time.strftime("%H:%M") %> </p><br> 
 <%end%>
 
 <%#  if @appointment.time 

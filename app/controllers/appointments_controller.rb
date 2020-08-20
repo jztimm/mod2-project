@@ -16,7 +16,6 @@ class AppointmentsController < ApplicationController
    end
 
    def create
-      # patient_id = session[:user_id]
       @appointment = @current_user.appointments.create(appointments_params)
       redirect_to patient_path(@appointment.patient)
    end

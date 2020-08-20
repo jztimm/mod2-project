@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+   skip_before_action :authorized
 
    def logout
       session.delete(:user_id)

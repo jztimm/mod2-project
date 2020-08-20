@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :find_patient, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:new, :create]
 
   def index
     @patients = Patient.all

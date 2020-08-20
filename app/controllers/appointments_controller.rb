@@ -16,7 +16,8 @@ class AppointmentsController < ApplicationController
    end
 
    def create
-      @appointment = Appointment.create(appointments_params)
+      # patient_id = session[:user_id]
+      @appointment = @current_user.appointments.create(appointments_params)
       redirect_to patient_path(@appointment.patient)
    end
 
@@ -37,7 +38,7 @@ class AppointmentsController < ApplicationController
    private
 
    def appointments_params
-      params.require(:appointment).permit(:patient_id, :doctor_id, :condition, :date, :time, :additional_info)
+      params.require(:appointment).permit(:doctor_id, :condition, :date, :time, :additional_info)
    end
 
    def find_appointment

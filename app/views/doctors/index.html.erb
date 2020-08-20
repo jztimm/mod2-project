@@ -5,7 +5,9 @@
 
 <br>
 <br>
-<% @doctors.each do |d| %>
-  <p><%= link_to d.name, doctor_path(d) %></p>
+<% @doctors.order(:specialty).each do |d| %>
+  <p><b>Name:</b><%= link_to d.name, doctor_path(d) %>
+  <br>
+  <b>Specialty:</b> <%= d.specialty %></p>
+  <br>
 <%end%>
-

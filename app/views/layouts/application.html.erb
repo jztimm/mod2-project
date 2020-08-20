@@ -44,12 +44,12 @@
         <% if @current_user %>
         <ul class="navbar-nav mx-auto">
           <li class="nav-link">Welcome <%= @current_user.name %></li>
-          <li> <%= button_to 'Logout', logout_path, method: :delete, class:"nav-link"  %></li>
+          <li> <%= button_to 'Logout', logout_path, method: :delete, class:"btn btn-light bg-primary my-2 my-sm-0"  %></li>
         </ul>
         <%else%>
         <ul class="navbar-nav mx-auto">
-          <li> <%= link_to 'Login', new_login_path, method: :get, class: "nav-link" %></li>
-          <li> <%= link_to 'Sign Up', new_patient_path, method: :get, class: "nav-link" %></li>
+          <li> <%= link_to 'Login', new_login_path, method: :get, class: "btn btn-light bg-primary my-2 my-sm-0" %></li>
+          <li> <%= link_to 'Sign Up', new_patient_path, method: :get, class: "btn btn-light bg-primary my-2 my-sm-0" %></li>
         </ul>
         <%end%>
         </div>

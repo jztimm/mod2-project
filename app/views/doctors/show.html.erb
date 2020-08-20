@@ -1,7 +1,5 @@
-<h3> Hi, I'm <%= @doctor.name %>
-<br>
-
-<h4> My specialty is <%= @doctor.specialty %></h4>
+<h3><%= @doctor.name %>
+<h4><%= @doctor.specialty %></h4>
 <br>
 <p> Here are a list of my patients: </p>
 <% @doctor.patients.uniq.each do |p| %>

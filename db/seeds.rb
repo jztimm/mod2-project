@@ -8,6 +8,7 @@
 
 puts "Creating Seeds..."
 
+
 50.times do
    Doctor.create(name: Faker::Name.unique.name,age: rand(25..150), specialty: Faker::Company.profession, city: Faker::Address.city, zipcode: 10000 + rand(20..24) )
 end

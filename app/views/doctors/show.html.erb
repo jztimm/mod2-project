@@ -3,8 +3,8 @@
 <h4><%= @doctor.specialty %></h4>
 <br>
 <h6>
-   <%= @doctor.city %>
-   <%= @doctor.zipcode %>
+   <%= @doctor.address%><br>
+   <%= @doctor.city %>, <%= @doctor.state %><%= @doctor.zipcode %>
 </h6>
 
 <br>
@@ -15,7 +15,7 @@
 <%#end%>
 <br>
 <% if @current_user %>
-   <p><%= button_to 'Create New Appointment', new_appointment_path(:doctor_id => @doctor.id) %></p>
+   <p>Click <%= link_to 'here', new_appointment_path(:doctor_id => @doctor.id) %> to book an appointment.</p>
 <%end%>
 <br>
 <%# <h6>Edit your doctor's profile <%= link_to "here", edit_doctor_path(@doctor) %>

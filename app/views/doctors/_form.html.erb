@@ -1,3 +1,9 @@
+<% if flash[:my_error] %>
+  <% flash[:my_error].each do |error| %>
+    <p><%= error %></p>
+  <%end%>
+<%end%>
+
 <%= simple_form_for @doctor do |f| %>
   <%= f.input :name %>
   <%= f.input :age, as: :integer, min: 0, max: 150 %>

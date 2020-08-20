@@ -1,6 +1,12 @@
-<h3>Hi, my name is '<%= @doctor.name %>'</h3><br>
-<h4>My specialty is: <%= @doctor.specialty %></h4>
 <br>
+<h3>Dr. <%= @doctor.name %></h3>
+<h4><%= @doctor.specialty %></h4>
+<br>
+<h6>
+   <%= @doctor.city %>
+   <%= @doctor.zipcode %>
+</h6>
+
 <br>
 <p>This doctor has <b><%= @doctor.patients.count %></b> patients
 <%#<p> Here are a list of my patients: </p>
@@ -9,7 +15,7 @@
 <%#end%>
 <br>
 <% if @current_user %>
-   <p>Want to create an appointment with me? Click <%= link_to 'here', new_appointment_path(:doctor_id => @doctor.id) %> to get started!</p>
+   <p><%= button_to 'Create New Appointment', new_appointment_path(:doctor_id => @doctor.id) %></p>
 <%end%>
 <br>
 <%# <h6>Edit your doctor's profile <%= link_to "here", edit_doctor_path(@doctor) %>

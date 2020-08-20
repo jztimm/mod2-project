@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :find_doctor, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:index]
 
   def index
     @doctors = Doctor.all
@@ -10,9 +11,6 @@ class DoctorsController < ApplicationController
   
 
   def show
-    # if session[:user_id]
-    #   redirect_to patient_path(session[:user_id])
-    # end
     unless params[:zipcode].nil? || params[:zipcode].empty?
       redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
     end

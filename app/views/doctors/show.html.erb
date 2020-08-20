@@ -2,12 +2,15 @@
 <h4>My specialty is: <%= @doctor.specialty %></h4>
 <br>
 <br>
-<p> Here are a list of my patients: </p>
-<% @doctor.patients.uniq.each do |p| %>
-<p><%= link_to p.name, patient_path(p)%></p>
-<%end%>
+<p>This doctor has <b><%= @doctor.patients.count %></b> patients
+<%#<p> Here are a list of my patients: </p>
+<%# @doctor.patients.uniq.each do |p| %>
+<%# = link_to p.name, patient_path(p)%>
+<%#end%>
 <br>
-<p>Want to create an appointment with me? Click <%= link_to 'here', new_appointment_path(:doctor_id => @doctor.id) %> to get started!</p>
+<% if @current_user %>
+   <p>Want to create an appointment with me? Click <%= link_to 'here', new_appointment_path(:doctor_id => @doctor.id) %> to get started!</p>
+<%end%>
 <br>
 <%# <h6>Edit your doctor's profile <%= link_to "here", edit_doctor_path(@doctor) %>
 

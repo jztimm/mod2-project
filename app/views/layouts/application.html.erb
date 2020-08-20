@@ -44,7 +44,7 @@
         <% if @current_user %>
         <ul class="navbar-nav mx-auto">
           <li class="nav-link">Welcome <%= @current_user.name %></li>
-          <li class="nav-link" href="sessions/logout">Logout</li>
+          <li> <%= button_to 'Logout', logout_path, method: :delete, class:"nav-link"  %></li>
         </ul>
         <%else%>
         <ul class="navbar-nav mx-auto">

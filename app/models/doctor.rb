@@ -2,11 +2,13 @@ class Doctor < ApplicationRecord
   has_many :appointments
   has_many :patients, through: :appointments
 
-  # <%= form_with url: "/search", method: :get do |form| %>
-  #   <%= form.label :query, "Search for:" %>
-  #   <%= form.text_field :query %>
-  #   <%= form.submit "Search" %>
-  # <% end %>
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :age, presence: true
+  validates :age, numericality: {greater_than: 21, less_than: 150}
+  validates :specialty, presence: true
+  validates :city, presence: true
+  validates :zipcode, :length => { :minimum => 5, :maximum => 6 }, :numericality => true, allow_blank: true
 
 
 end

@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
    def logout
       session.delete(:user_id)
+      cookies.delete(session[:user_id])
       redirect_to root_path
    end
 

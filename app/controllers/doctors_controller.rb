@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :find_doctor, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:index, :show]
 
   def index
     @doctors = Doctor.all

@@ -17,7 +17,7 @@ Appointment.delete_all
 end
 
 30.times do
-   Patient.create(name: Faker::Name.unique.name, age: rand(1..150), city: "New York", zipcode: 10000 + rand(20..24))
+   Patient.create(name: Faker::Name.unique.name, age: rand(1..150), city: "New York", zipcode: 10000 + rand(20..24), state: 'NY', address: Faker::Address.street_address)
 end
 
 15.times do

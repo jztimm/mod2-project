@@ -3,6 +3,9 @@
 <h4><%= @doctor.specialty %></h4>
 <br>
 <h6>
+<%= image_tag "#{rand(1..5)}.jpg"%>
+<br>
+<br>
    <%= @doctor.address%><br>
    <%= @doctor.city %>, <%= @doctor.state %><%= @doctor.zipcode %>
 </h6>

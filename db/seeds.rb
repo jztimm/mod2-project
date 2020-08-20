@@ -8,13 +8,16 @@
 
 puts "Creating Seeds..."
 
+Doctor.delete_all
+Patient.delete_all
+Appointment.delete_all
 
-50.times do
-   Doctor.create(name: Faker::Name.unique.name,age: rand(25..150), specialty: Faker::Company.profession, city: Faker::Address.city, zipcode: 10000 + rand(20..24) )
+30.times do
+   Doctor.create(name: Faker::Name.unique.name, age: rand(25..150), specialty: Faker::Company.profession, address: Faker::Address.street_address, city: 'New York', state: 'NY', zipcode: 10000 + rand(20..24))
 end
 
-50.times do
-   Patient.create(name: Faker::Name.unique.name, age: rand(1..150), city: Faker::Address.city, zipcode: Faker::Address.zip_code)
+30.times do
+   Patient.create(name: Faker::Name.unique.name, age: rand(1..150), city: "New York", zipcode: 10000 + rand(20..24))
 end
 
 15.times do

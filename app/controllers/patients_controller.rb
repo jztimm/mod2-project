@@ -1,14 +1,12 @@
 class PatientsController < ApplicationController
   before_action :find_patient, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:new, :create]
 
   def index
     @patients = Patient.all
   end
 
   def show
-    # if session[:user_id]
-    #   redirect_to patient_path(session[:user_id])
-    # end
     unless params[:zipcode].nil? || params[:zipcode].empty?
       redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
     end
@@ -20,7 +18,6 @@ class PatientsController < ApplicationController
 
   def create
     patient = Patient.create(patient_params)
-    
     if patient.valid?
       session[:user_id] = patient.id
       redirect_to patient

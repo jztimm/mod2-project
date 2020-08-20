@@ -50,8 +50,8 @@
         </ul>
         <%else%>
         <ul class="navbar-nav mx-auto">
-          <li> <%= link_to 'Login', new_login_path, method: :get, class: "btn btn-light bg-primary my-2 my-sm-0" %></li>
-          <li> <%= link_to 'Sign Up', new_patient_path, method: :get, class: "btn btn-light bg-primary my-2 my-sm-0" %></li>
+          <li> <%= button_to 'Login', new_login_path, method: :get, class: "btn btn-light bg-primary my-2 my-sm-0" %></li>
+          <li> <%= button_to 'Sign Up', new_patient_path, method: :get, class: "btn btn-light bg-primary my-2 my-sm-0" %></li>
         </ul>
         <%end%>
         </div>

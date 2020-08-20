@@ -1,12 +1,12 @@
 <h1> All the Doctors </h1>
 
-<%= button_to "Become a new Doctor", new_doctor_path, method: :get %>
+<%# <%= button_to "Become a new Doctor", new_doctor_path, method: :get %>
 <br>
 
 <br>
 <br>
 <% @doctors.order(:specialty).each do |d| %>
-  <p><b>Name:</b><%= link_to d.name, doctor_path(d) %>
+  <p><b>Name: </b><%= link_to d.name, doctor_path(d) %>
   <br>
   <b>Specialty:</b> <%= d.specialty %></p>
   <br>

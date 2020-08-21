@@ -1,24 +1,9 @@
-# README
+# nbdMD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple patient doctor lookup app. Allows patients to search by their zipcode to find the right doctor and make an appointment
 
-Things you may want to cover:
+#### Specs
 
-* Ruby version
+* Ruby 2.6.1 on Rails 6
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Bootstrap CDN 

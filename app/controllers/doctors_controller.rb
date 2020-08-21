@@ -4,14 +4,14 @@ class DoctorsController < ApplicationController
 
   def index
     @doctors = Doctor.all
-    unless params[:zipcode].nil? || params[:zipcode].empty?
+    unless params[:zipcode].blank?
       @doctors = @doctors.where(zipcode: params[:zipcode])
     end
   end
   
 
   def show
-    unless params[:zipcode].nil? || params[:zipcode].empty?
+    unless params[:zipcode].blank?
       redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
     end
   end

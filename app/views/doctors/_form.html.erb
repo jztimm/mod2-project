@@ -4,49 +4,31 @@
   <%end%>
 <%end%>
 
-<%= form_for @patient, :html => {:class => "form-horizontal center"} do |f| %>
-      <div class="form-group">
-        <%= f.label :name, "name:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :birthday, "birthday:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.date_select :birthday, :start_year => 1950, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :specialty, "specialty:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.text_field :specialty, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :address, "address:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.text_field :address, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :city, "city:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.text_field :city, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :state, "state:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.text_field :state, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :zipcode, "zip-code:", class: "col-md-4 control-label" %>
-        <div class="col-md-8">
-          <%= f.text_field :zipcode, class: "form-control" %>
-        </div>
-      </div>
+<%= form_for @patient do |f| %>
+        <%= f.label :name, "name:"%>
+        <%= f.text_field :name %>
+        
+        <%= f.label :birthday, "birthday:" %>
+        <%= f.date_select :birthday, :start_year => 1950 %>
 
-      <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
+        <%= f.label :specialty, "specialty:" %>
+        <%= f.text_field :specialty %>
+        
+      
+        <%= f.label :address, "address:" %>
+        <%= f.text_field :address %>
+        
+      
+        <%= f.label :city, "city:" %>
+        <%= f.text_field :city %>
+        
+      
+        <%= f.label :state, "state:" %>
+        <%= f.text_field :state %>
+        
+      
+        <%= f.label :zipcode, "zip-code:" %>
+        <%= f.text_field :zipcode %>
+
+      <%= f.submit "Submit"%>  
 <% end %>

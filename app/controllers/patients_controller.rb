@@ -14,6 +14,9 @@ class PatientsController < ApplicationController
 
   def new
     @patient = Patient.new
+    unless params[:zipcode].blank?
+      redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
+    end
   end
 
   def create

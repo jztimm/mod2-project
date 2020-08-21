@@ -7,7 +7,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    unless params[:zipcode].nil? || params[:zipcode].empty?
+    unless params[:zipcode].blank?
       redirect_to doctors_path(@doctors, zipcode: params[:zipcode])
     end
   end
@@ -43,7 +43,7 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :password, :age, :city, :zipcode, :address, :state)
+    params.require(:patient).permit(:name, :password, :birthday, :city, :zipcode, :address, :state)
   end
 
   def find_patient

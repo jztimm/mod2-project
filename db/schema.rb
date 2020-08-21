@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_222052) do
+ActiveRecord::Schema.define(version: 2020_08_21_000819) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "patient_id"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_222052) do
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
     t.string "specialty"
     t.string "city"
     t.integer "zipcode"
@@ -33,11 +32,11 @@ ActiveRecord::Schema.define(version: 2020_08_20_222052) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "state"
     t.string "address"
+    t.date "birthday"
   end
 
   create_table "patients", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
     t.string "city"
     t.integer "zipcode"
     t.datetime "created_at", precision: 6, null: false
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_222052) do
     t.string "password_digest"
     t.string "state"
     t.string "address"
+    t.date "birthday"
   end
 
 end

@@ -1,11 +1,22 @@
+<br>
 <h3><%= @patient.name %></h3>
+   <h5>
+    <%= @patient.address%>
+    <br>
+    <%= @patient.city %>, <%= @patient.state %> <%= @patient.zipcode %>
+   </h5>
+   <br>
+   <b>Birthdate:</b> <%= @patient.birthday.strftime("%B %-d, %Y") %><br>
+   <b>Age:</b> <%= @patient.calc_age %>
+<br>
+<br>
 <br>
   <h5> My upcoming Appointments: </h5>
 <br>
 
 <% @patient.appointments.each do |appointment| %>
-  <p><b>Doctor:</b> <%= link_to appointment.doctor.name, doctor_path(appointment.doctor) %></p><p><b>Reason:</b>"<%= link_to appointment.condition, appointment_path(appointment) %>"</p>
-  <p><b>date:</b> <%= appointment.date %> <b>at:</b> <%= appointment.time.strftime("%H:%M") %> </p><br> 
+  <p><b>Doctor: </b><%= link_to appointment.doctor.name, doctor_path(appointment.doctor) %></p><p><b>Reason:</b>"<%= link_to appointment.condition, appointment_path(appointment) %>"</p>
+  <p><b>Date: </b><%= appointment.date.strftime("%B %-d, %Y") %> <b>at:</b> <%= appointment.time.strftime("%l:%M %P") %> </p><br> 
 <%end%>
 
 <%#  if @appointment.time 
@@ -15,7 +26,7 @@ end -
 <br>
 
 <br>
-<p>Wrong information? Edit your information <%= link_to "here", edit_patient_path(@patient) %>.</p>
+<p>Changed your information? Update <%= link_to "here", edit_patient_path(@patient) %>.</p>
 
 
 

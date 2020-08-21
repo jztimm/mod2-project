@@ -1,15 +1,23 @@
-<h2>This appointment is with the doctor: <p><%= @appointment.doctor.name %></h2></p><br>
-<h2>This is your appointment for: <p><%= @appointment.condition %></h2></p><br>
+<br>
+<h3>Upcoming Appointment: </h3>
+<h4>Dr <%= @appointment.doctor.name %><h4>
+<%= image_tag '6.jpg' %>
 
-<h3>The date and time for the appointment is set to: <br><%= @appointment.date %> - <%= @appointment.time.strftime("%H:%M") %></h3>
+<h5>Patient Condition: </h5>
+<%= @appointment.condition %>
+<br>
+<br>
+<h5>Additional information:</h5>
+<%= @appointment.additional_info %>
+<br>
+<br>
+<h5>Apointment Date & Time: </h5>
+<%= @appointment.date.strftime("%B %-d, %Y") %>, <%= @appointment.time.strftime("%l:%M %P") %></h3>
 
-
-<h4>Additional information:</h4><br>
-<h5>"<%= @appointment.additional_info %>"</h5><br>
-
-<h4>The date and time for the appointment is set to:</h4> <br><h5><%= @appointment.date %> - <%= @appointment.time.strftime("%H:%M") %></h5>
 
 <br>
-<p>Want to make changes to this appointment? Click <%= link_to 'here', edit_appointment_path(@appointment) %></p>
+<br>
+<br>
+<p>Click <%= link_to 'here', edit_appointment_path(@appointment) %> to edit to your appointment.</p>
 
 

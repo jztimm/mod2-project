@@ -14,12 +14,12 @@ Appointment.delete_all
 
 speciality_array = ["Geriatrics", "Dermatology", "Pediatrics", "Plastic Surgery", "Family Medicine", "Gastroenterology"]
 
-30.times do
-   Doctor.create(name: Faker::Name.unique.name, age: rand(25..150), specialty: speciality_array.sample, address: Faker::Address.street_address, city: 'New York', state: 'NY', zipcode: 10000 + rand(20..24))
+20.times do
+   Doctor.create(name: Faker::Name.unique.name, birthday: Faker::Date.birthday(min_age: 21, max_age: 70), specialty: speciality_array.sample, address: Faker::Address.street_address, city: 'New York', state: 'NY', zipcode: 10000 + rand(20..24))
 end
 
-30.times do
-   Patient.create(name: Faker::Name.unique.name, age: rand(1..150), city: "New York", zipcode: 10000 + rand(20..24), state: 'NY', address: Faker::Address.street_address)
+50.times do
+   Patient.create(name: Faker::Name.unique.name, birthday: Faker::Date.birthday(min_age: 1, max_age: 105), city: "New York", zipcode: 10000 + rand(20..24), state: 'NY', address: Faker::Address.street_address)
 end
 
 15.times do

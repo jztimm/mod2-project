@@ -1,4 +1,15 @@
+<br>
 <h3><%= @patient.name %></h3>
+   <h5>
+    <%= @patient.address%>
+    <br>
+    <%= @patient.city %>, <%= @patient.state %> <%= @patient.zipcode %>
+   </h5>
+   <br>
+   <b>Birthdate:</b> <%= @patient.birthday.strftime("%B %-d, %Y") %><br>
+   <b>Age:</b> <%= @patient.calc_age %>
+<br>
+<br>
 <br>
   <h5> My upcoming Appointments: </h5>
 <br>

@@ -14,4 +14,7 @@ least 16 year old to sign in." if value > Date.new((Date.today.year -
 18),(Date.today.month),(Date.today.day))
   end
 
+  def calc_age
+    Time.now.year - self.birthday.year
+  end
 end

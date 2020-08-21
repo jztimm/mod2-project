@@ -48,7 +48,7 @@ class DoctorsController < ApplicationController
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :age, :specialty, :city, :zipcode, :state, :address)
+    params.require(:doctor).permit(:name, :birthday, :specialty, :city, :zipcode, :state, :address)
   end
 
   def find_doctor

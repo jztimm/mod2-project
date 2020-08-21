@@ -18,9 +18,9 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :age, "age:", class: "col-md-4 control-label" %>
+        <%= f.label :birthday, "birthday:", class: "col-md-4 control-label" %>
         <div class="col-md-8">
-          <%= f.number_field :age, min: 0, max: 150, class: "form-control" %>
+          <%= f.date_select :birthday, :start_year => 1900, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">

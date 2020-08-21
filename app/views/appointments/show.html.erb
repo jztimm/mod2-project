@@ -12,7 +12,7 @@
 <br>
 <br>
 <h5>Apointment Date & Time: </h5>
-<%= @appointment.date %> at <%= @appointment.time.strftime("%H:%M") %></h3>
+<%= @appointment.date.strftime("%B %-d, %Y") %>, <%= @appointment.time.strftime("%l:%M %P") %></h3>
 
 
 <br>
